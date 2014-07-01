@@ -18,6 +18,34 @@ public abstract class HandModel : MonoBehaviour {
   private Hand hand_;
   private HandController controller_;
 
+  public Vector3 GetPalmOffset() {
+    if (controller_ == null)
+      return Vector3.zero;
+
+    Vector3 additional_movement = controller_.handMovementScale - Vector3.one;
+    Vector3 scaled_palm_position = Vector3.Scale(additional_movement,
+                                                 hand_.PalmPosition.ToUnityScaled());
+
+    return controller_.transform.TransformPoint(scaled_palm_position) -
+           controller_.transform.position;
+  }
+
+  // Returns the palm position of the hand in relation to the controller.
+  public Vector3 GetPalmPosition() {
+    return controller_.transform.TransformPoint(hand_.PalmPosition.ToUnityScaled()) +
+           GetPalmOffset();
+  }
+
+  // Returns the palm rotation of the hand in relation to the controller.
+  public Quaternion GetPalmRotation() {
+    return GetController().transform.rotation * GetLeapHand().Basis.Rotation();
+  }
+
+  // Returns the palm direction of the hand in relation to the controller.
+  public Vector3 GetPalmDirection() {
+    return controller_.transform.TransformDirection(hand_.Direction.ToUnity());
+  }
+
   public Hand GetLeapHand() {
     return hand_;
   }
@@ -25,8 +53,10 @@ public abstract class HandModel : MonoBehaviour {
   public void SetLeapHand(Hand hand) {
     hand_ = hand;
     for (int i = 0; i < fingers.Length; ++i) {
-      if (fingers[i] != null)
+      if (fingers[i] != null) {
         fingers[i].SetLeapHand(hand_);
+        fingers[i].SetOffset(GetPalmOffset());
+      }
     }
   }
 

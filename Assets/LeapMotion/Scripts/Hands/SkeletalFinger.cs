@@ -8,7 +8,7 @@ using UnityEngine;
 using System.Collections;
 using Leap;
 
-// The finger model for our skeletal hand made out of various polyhedra.
+// The finger model for our skeletal hand made out of various non-deforming models.
 public class SkeletalFinger : FingerModel {
 
   public Transform[] bones = new Transform[NUM_BONES];
@@ -24,7 +24,7 @@ public class SkeletalFinger : FingerModel {
   private void SetPositions(Transform deviceTransform) {
     for (int i = 0; i < bones.Length; ++i) {
       if (bones[i] != null) {
-        bones[i].transform.position = GetBonePosition(i);
+        bones[i].transform.position = GetBoneCenter(i);
         bones[i].transform.rotation = GetBoneRotation(i);
       }
     }

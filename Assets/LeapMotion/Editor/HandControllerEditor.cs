@@ -13,33 +13,41 @@ public class HandControllerEditor : Editor {
 
     if (controller.separateLeftRight) {
       controller.leftGraphicsModel =
-          (HandModel)EditorGUILayout.ObjectField("Left Graphics Model",
+          (HandModel)EditorGUILayout.ObjectField("Left Hand Graphics Model",
                                                  controller.leftGraphicsModel,
                                                  typeof(HandModel), true);
       controller.rightGraphicsModel =
-          (HandModel)EditorGUILayout.ObjectField("Right Graphics Model",
+          (HandModel)EditorGUILayout.ObjectField("Right Hand Graphics Model",
                                                  controller.rightGraphicsModel,
                                                  typeof(HandModel), true);
       controller.leftPhysicsModel =
-          (HandModel)EditorGUILayout.ObjectField("Left Physics Model",
+          (HandModel)EditorGUILayout.ObjectField("Left Hand Physics Model",
                                                  controller.leftPhysicsModel,
                                                  typeof(HandModel), true);
       controller.rightPhysicsModel =
-          (HandModel)EditorGUILayout.ObjectField("Right Physics Model",
+          (HandModel)EditorGUILayout.ObjectField("Right Hand Physics Model",
                                                  controller.rightPhysicsModel,
                                                  typeof(HandModel), true);
     }
     else {
       controller.leftGraphicsModel = controller.rightGraphicsModel = 
-          (HandModel)EditorGUILayout.ObjectField("Graphics Model",
+          (HandModel)EditorGUILayout.ObjectField("Hand Graphics Model",
                                                  controller.leftGraphicsModel,
                                                  typeof(HandModel), true);
 
       controller.leftPhysicsModel = controller.rightPhysicsModel = 
-          (HandModel)EditorGUILayout.ObjectField("Physics Model",
+          (HandModel)EditorGUILayout.ObjectField("Hand Physics Model",
                                                  controller.leftPhysicsModel,
                                                  typeof(HandModel), true);
     }
+
+    controller.toolModel = 
+        (ToolModel)EditorGUILayout.ObjectField("Tool Model",
+                                               controller.toolModel,
+                                               typeof(ToolModel), true);
+
+    controller.handMovementScale =
+        EditorGUILayout.Vector3Field("Hand Movement Scale", controller.handMovementScale);
 
     if (GUI.changed)
       EditorUtility.SetDirty(controller);

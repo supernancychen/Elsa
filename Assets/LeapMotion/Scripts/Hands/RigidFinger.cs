@@ -28,7 +28,7 @@ public class RigidFinger : SkeletalFinger {
     for (int i = 0; i < bones.Length; ++i) {
       if (bones[i] != null) {
         // Set velocity.
-        Vector3 target_bone_position = GetBonePosition(i);
+        Vector3 target_bone_position = GetBoneCenter(i);
         
         bones[i].rigidbody.velocity = (target_bone_position - bones[i].transform.position) *
                                       ((1 - easing) / Time.fixedDeltaTime);

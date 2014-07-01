@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{A0FB4E5D-D917-D241-FA9B-19834063B120}</ProjectGuid>
+	<ProjectGuid>{0FAFA663-7294-916E-B5B6-DA2190AF1D11}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,8 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LeapMotion\Scripts\ButtonBehavior.cs" />
-     <Compile Include="Assets\LeapMotion\Scripts\DemoScripts\CubeWave.cs" />
+     <Compile Include="Assets\LeapMotion\Demos\Scripts\CubeWave.cs" />
+     <Compile Include="Assets\LeapMotion\Demos\Scripts\IgnoreInternalCollisions.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\HandController.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Hands\FingerModel.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Hands\HandModel.cs" />
@@ -59,16 +59,20 @@
      <Compile Include="Assets\LeapMotion\Scripts\Hands\RigidHand.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Hands\SkeletalFinger.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Hands\SkeletalHand.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Tools\ToolModel.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Utils\ConfidenceTransparency.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\GrabHand.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Utils\LeapUnityExtensions.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Utils\MagneticPinch.cs" />
+     <Compile Include="Assets\MakeSnowflake.cs" />
+     <Compile Include="Assets\MakeSnowflakes.cs" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\LeapMotion\readme.txt" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Lighted.shader" />
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>/Users/nchen/workspace/nancy_ui_work/bestPractices/leap/Assets/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>/Users/nchen/workspace/elsa/Assets/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
